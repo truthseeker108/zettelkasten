@@ -1,0 +1,27 @@
+ID: FLEET_2025_01_13_01
+Cím: Linux fájl jogosulságok működése
+Címkék: #linux #permissions #security
+
+Linux alatt három jogsoultság kategóriát  különbötzetünk meg. Az első a tulajdonos 
+- aki a fált létrehozta vagy birtokolja, 
+- a csoport jogsoultságai
+- harmadik a világ ("mindenki más")
+Jelzésrendszer (írás/olvasás/futtatás):
+r: olvasási jog
+w: írási jog
+- nincs jogosultság
+
+Az ls -l megmutatja a josoultságokat:
+-rw-r--r-- 
+
+Ezt 4 csoportja osztjuk, az első jelre, és 3 hármas csoportra:
+rw-r r-- r--
+
+- az első jel - (könyváraknál ez d, például drwxr-xr-x)
+Első hármas: rw-r a tuladonos jogai: rw- olvashatja, írhatja, de nem futtathatja
+Második hármas: r-- csoport: olvashatja, de nem írhatja és futathatja,
+Harmadik hármas: r-- viág, olvashtja, de nincs írási/futtatási joga
+
+Kapcsolódó jegyzetek:
+chmod
+chown
