@@ -22,6 +22,14 @@ Első hármas: rw-r a tuladonos jogai: rw- olvashatja, írhatja, de nem futtatha
 Második hármas: r-- csoport: olvashatja, de nem írhatja és futathatja,
 Harmadik hármas: r-- viág, olvashtja, de nincs írási/futtatási joga
 
+A rendszer oktális számon alapul:
+000 nincs jogosultság
+001 futttási jog
+010 írási jog
+100 olvasási jog
+011 futtatés ás írs
+101 olvasás és futtatás
+111,  
 Kapcsolódó jegyzetek:
 chmod
 chown
