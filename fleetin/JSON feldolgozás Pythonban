@@ -1,0 +1,49 @@
+Title: JSON feldolgozás Pythonban
+ID: PY-2025-01-27-01
+A JSON formában tárolt adatszerkezetet a Pythonban szótárként (dictionary) kezeljük. 
+Beolvashatjuk dictinaryként:
+- fájlból (json.load)
+- sztringból (json.loads)
+
+Kiírhatjuk a dictionaryt:
+- fájlba (json.dump)
+- sztringbe (json.dumps)
+
+JSON fájlok olvasása dict-be:
+
+import json
+with open("my-json-file.json", "r") as file:
+    json_dict=json.load(file)
+
+Dictionary írása JSON fájlként:
+
+with open("my-json-file-to-write.json", "w") as file:
+  json.dump(json_dict,file,indent=4)
+
+Az indent paraméterben adjuk meg az egyes szintek behúzásához használt spece-ek számát. 
+Értéke lehet:
+pozitív egész szám - ennyi space-t fog használni
+Null, - formázás nélkül,minden egy sorba kerül,
+Tab "\t" 
+
+Az ensure_ascii paraméter  segítéségvel adhatjuk meg, hogyna kezelje a nem ASCII karaktereket.
+
+JSON olvasása dict-be sztringből:
+
+s = '{"mykey": "myvalue", "nr":3, "mylist": [1,2,3]}'
+parsed_s = json.loads(s)
+print(json.dumps(parsed_s)) 
+
+Dictionary közvetlen JSON sztringgé alakítása:
+my_dict = {"mykey": "myvalue",
+           "nr":3, 
+           "mylist": [1,2,3]
+          }
+print(json.dumps(my_dict))
+
+Kivételek:
+Ha a JSON adat invalid: json.JsonDecodeError hiba keletkezik.
+Ez lehet hiányzó []{}, vagy egyéb szintatikai hiba,például "mykey" "myvalue" (hiányzó :)
+
+Keywords: #json, #python, #parsing, #ascii, #unicode  
+Related: json-alapok, context-manager, fájl műveletek pythonban, python-dict, python-list, json-file-olvasása-pythonban
